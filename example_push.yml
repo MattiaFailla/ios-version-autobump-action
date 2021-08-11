@@ -27,7 +27,7 @@ jobs:
         uses: 'actions/setup-node@v1'
         with:
           node-version: 12
-      - name: 'cat build.gradle'
+      - name: 'cat project.pbxproj'
         run: cat ./ios/App/App.xcodeproj/project.pbxproj
       - name: 'iOS autobump version'
         id: version-bump
