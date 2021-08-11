@@ -28,18 +28,18 @@ jobs:
         with:
           node-version: 12
       - name: 'cat build.gradle'
-        run: cat ./android/app/build.gradle
+        run: cat ./ios/App/App.xcodeproj/project.pbxproj
       - name: 'iOS autobump version'
         id: version-bump
         uses: 'MattiaFailla/ios-version-autobump-action@main'
         with:
           tag-prefix: 'v'
-          GRADLE_PATH: './android/app/build.gradle'
+          PBX_PATH: './ios/App/App.xcodeproj/project.pbxproj'
           commit-message: 'CI: bumps iOS version to {{version}}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: 'cat build.gradle after version patch'
-        run: cat ./android/app/build.gradle
+      - name: 'cat project.pbxproj after version patch'
+        run: cat ./ios/App/App.xcodeproj/project.pbxproj
       - name: 'Output Step'
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}

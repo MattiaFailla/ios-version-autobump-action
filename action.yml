@@ -1,5 +1,5 @@
 name: 'Autobump iOS version'
-description: 'Automatically bump android project version when merging to production'
+description: 'Automatically bump iOS project version when merging to production'
 inputs:
   tag-prefix:
     description: 'Prefix that is used for the git tag'
@@ -24,8 +24,8 @@ inputs:
     description: 'Avoid to add a TAG to the version update commit'
     default: 'false'
     required: false
-  GRADLE_PATH:
-    description: 'Custom dir to the gradle file'
+  PBX_PATH:
+    description: 'Custom dir to the project file'
     default: ''
     required: true
   default:
